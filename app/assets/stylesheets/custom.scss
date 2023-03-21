@@ -1,0 +1,154 @@
+// Colors
+
+$black: #393939;
+$off-white: #EDEDED;
+$dark-gray: #666;
+$medium-gray: #6c757d;
+$light-gray: #c2c2c2;
+$blue: #237CBE;
+$light-blue: lighten($blue, 40%);
+$orange: #E8890C;
+$yellow: #ffc107;
+$light-yellow: #FFC;
+$red: #dc3545;
+
+// Custom Variables
+
+$secondary-text-color: $medium-gray;
+$accent-color: $orange;
+$secondary-link-color: $light-blue;
+$border-color: $light-gray;
+$error-color: $red;
+$error-background-color: $light-yellow;
+$sold-out-color: $yellow;
+$box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .09);
+
+// Bootstrap Variable Overrides
+
+$body-color: $black;
+$body-bg: $off-white;
+$primary: $blue;
+$secondary: $dark-gray;
+
+// Import Bootstrap Styles
+
+@import "bootstrap";
+
+// Custom CSS
+
+// Forms
+
+form:not([class="button_to"]) {
+	max-width: 400px;
+	margin-top: 1.5rem;
+
+  label {
+    font-size: 1.1rem;
+		font-weight: 600;
+		display: block;
+  }
+
+	input:not([type="checkbox"]):not([type="radio"]):not([type="file"]):not([type="submit"]),
+	textarea,
+	select:not(.date) {
+		@extend .form-control;
+		margin-bottom: 0.75rem;
+		width: 100%;
+	}
+
+	select.date {
+		display: inline-block;
+		margin-bottom: 0.75rem;
+	}
+
+	input[type="submit"] {
+		@extend .btn, .btn-primary, .btn-block;
+		margin-bottom: .75rem;
+	}
+
+	input[type="checkbox"] {
+		@extend .form-check-input;
+		width: 20px;
+	  height: 20px;
+	}
+
+	input[type="checkbox"] + label {
+		@extend .form-check-label;
+		padding-left: 0.5rem;
+		margin-bottom: 0.5rem;
+	}
+
+	input[type="radio"] {
+		@extend .form-check-input;
+		width: 20px;
+	  height: 20px;
+	}
+
+	input[type="radio"] + label {
+		@extend .form-check-label;
+		margin-bottom: 0.6rem;
+		font-weight: 400;
+	}
+
+	input[type="file"] {
+		@extend .form-control-file;
+		margin-bottom: 0.75rem;
+		width: 100%;
+	}
+
+	.star {
+		@extend .form-check, .form-check-inline;
+	}
+
+	.checkboxes {
+		@extend .form-check;
+		margin-top: 1.5rem;
+	}
+
+	div.field_with_errors {
+    display: inline;
+    label {
+      color: $error-color;
+    }
+    input, textarea, select {
+      background: $error-background-color;
+    }
+  }
+}
+
+// Flashes
+
+.flash {
+	@extend .alert;
+	text-align: center;
+	margin-top: -1rem;
+	margin-bottom: 2rem;
+
+  &.notice {
+		@extend .alert-success;
+  }
+
+  &.alert {
+		@extend .alert-danger;
+  }
+}
+
+// Errors
+
+section.errors {
+  margin: 1rem 0;
+	padding: 1.5rem;
+	border-radius: 0.3rem;
+  background: $error-background-color;
+
+  h2 {
+    color: $error-color;
+    font-size: 1.25rem;
+  }
+
+  h3 {
+		font-size: 1rem;
+		margin-top: 1rem;
+		font-weight: 600;
+  }
+}
